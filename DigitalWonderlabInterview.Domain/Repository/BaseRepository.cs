@@ -6,17 +6,17 @@ namespace DigitalWonderlabInterview.Domain.Repository;
 public class BaseRepository<TEntity> : IBaseRepository<TEntity>
     where TEntity : BaseEntity
 {
-    private readonly DataContext _context;
+    private DataContext Context { get; set; }
 
     public BaseRepository(DataContext context)
     {
-        _context = context;
+        Context = context;
     }
 
     public async Task<TEntity> Add(TEntity entity)
     {
-        await _context.AddAsync(entity);
-        await _context.SaveChangesAsync();
+        await Context.AddAsync(entity);
+        await Context.SaveChangesAsync();
 
         return entity;
     }
