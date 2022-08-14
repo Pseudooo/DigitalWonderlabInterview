@@ -1,4 +1,5 @@
 using DigitalWonderlabInterview.Service.Commands;
+using DigitalWonderlabInterview.Service.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,10 +23,11 @@ public class FilmController : ControllerBase
         return Created("", result);
     }
 
-    [HttpGet("search")]
-    public ActionResult SearchForFilm()
+    [HttpPost("search")]
+    public async Task<ActionResult> SearchForFilm([FromBody] SearchForFilmQuery query)
     {
-        throw new NotImplementedException();
+        var result = await _mediator.Send(query);
+        return Ok(result);
     }
 
 }
