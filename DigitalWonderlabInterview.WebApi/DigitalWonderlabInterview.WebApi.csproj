@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalWonderlabInterview.ClientModel\DigitalWonderlabInterview.ClientModel.csproj" />
+    <ProjectReference Include="..\DigitalWonderlabInterview.Service\DigitalWonderlabInterview.Service.csproj" />
+    <ProjectReference Include="..\DigitalWonderlabInterview.Domain\DigitalWonderlabInterview.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
