@@ -1,3 +1,4 @@
+using DigitalWonderlabInterview.Service.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,10 @@ public class FilmController : ControllerBase
     }
 
     [HttpPost("add")]
-    public ActionResult AddFilm()
+    public async Task<ActionResult> AddFilmAsync([FromBody] AddFilmCommand command)
     {
-        throw new NotImplementedException();
+        var result = await _mediator.Send(command);
+        return Created("", result);
     }
 
     [HttpGet("search")]
