@@ -1,4 +1,5 @@
 using DigitalWonderlabInterview.Service.Commands;
+using DigitalWonderlabInterview.Service.Exceptions;
 using DigitalWonderlabInterview.Service.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +20,15 @@ public class FilmController : ControllerBase
     [HttpPost("add")]
     public async Task<ActionResult> AddFilmAsync([FromBody] AddFilmCommand command)
     {
-        var result = await _mediator.Send(command);
-        return Created("", result);
+        try
+        {
+            var result = await _mediator.Send(command);
+            return Created("", result);
+        }
+        catch(ValidationFailedException e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
     [HttpPost("search")]
