@@ -6,5 +6,6 @@ public class FilmEntity : BaseEntity
 {
     [Required]
     public string Name { get; set; } = null!;
+    public int Rating { get; set; }
 }
 
