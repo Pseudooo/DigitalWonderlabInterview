@@ -2,6 +2,7 @@ using DigitalWonderlabInterview.ClientModel;
 using DigitalWonderlabInterview.Domain.Entities;
 using DigitalWonderlabInterview.Domain.Interface;
 using DigitalWonderlabInterview.Service.Commands;
+using MapsterMapper;
 using MediatR;
 
 namespace DigitalWonderlabInterview.Service.Handlers;
@@ -9,10 +10,12 @@ namespace DigitalWonderlabInterview.Service.Handlers;
 public class AddFilmHandler : IRequestHandler<AddFilmCommand, FilmModel>
 {
     private readonly IBaseRepository<FilmEntity> _baseRepository;
+    private readonly IMapper _mapper;
 
-    public AddFilmHandler(IBaseRepository<FilmEntity> baseRepository)
+    public AddFilmHandler(IBaseRepository<FilmEntity> baseRepository, IMapper mapper) 
     {
         _baseRepository = baseRepository;
+        _mapper = mapper;
     }
 
     public async Task<FilmModel> Handle(AddFilmCommand request, CancellationToken cancellationToken)
@@ -23,11 +26,8 @@ public class AddFilmHandler : IRequestHandler<AddFilmCommand, FilmModel>
         };
         
         var addedEntity = await _baseRepository.Add(filmEntity);
+        var addedModel = _mapper.Map<FilmModel>(addedEntity);
 
-        return new FilmModel()
-        {
-            Id = addedEntity.Id,
-            Name = addedEntity.Name,
-        };
+        return addedModel;
     }
 }
