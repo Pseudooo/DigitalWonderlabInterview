@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitalWonderlabInterview.ClientModel\DigitalWonderlabInterview.ClientModel.csproj" />
+    <ProjectReference Include="..\DigitalWonderlabInterview.Domain\DigitalWonderlabInterview.Domain.csproj" />
   </ItemGroup>
 
 </Project>
