@@ -14,6 +14,7 @@ public static class ServiceCollectionExtensions
         });
         
         sc.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+        sc.AddScoped<IFilmRepository, FilmRepository>();
 
         return sc;
     }
