@@ -6,7 +6,7 @@ namespace DigitalWonderlabInterview.Domain.Repository;
 public class BaseRepository<TEntity> : IBaseRepository<TEntity>
     where TEntity : BaseEntity
 {
-    private DataContext Context { get; set; }
+    internal DataContext Context { get; set; }
 
     public BaseRepository(DataContext context)
     {
