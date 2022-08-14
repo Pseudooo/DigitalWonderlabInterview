@@ -23,6 +23,7 @@ public class AddFilmHandler : IRequestHandler<AddFilmCommand, FilmModel>
         var filmEntity = new FilmEntity()
         {
             Name = request.FilmName,
+            Rating = request.Rating,
         };
         
         var addedEntity = await _baseRepository.Add(filmEntity);
