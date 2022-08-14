@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DigitalWonderlabInterview.Domain.Entities.FilmEntity;
+namespace DigitalWonderlabInterview.Domain.Entities;
 
 public class FilmEntity : BaseEntity
 {
