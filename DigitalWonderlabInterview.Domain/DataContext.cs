@@ -1,4 +1,4 @@
-using DigitalWonderlabInterview.Domain.Entities.FilmEntity;
+using DigitalWonderlabInterview.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DigitalWonderlabInterview.Domain;

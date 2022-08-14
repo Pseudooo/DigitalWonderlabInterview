@@ -1,5 +1,5 @@
 using DigitalWonderlabInterview.ClientModel;
-using DigitalWonderlabInterview.Domain.Entities.FilmEntity;
+using DigitalWonderlabInterview.Domain.Entities;
 using DigitalWonderlabInterview.Domain.Interface;
 using DigitalWonderlabInterview.Service.Commands;
 using MediatR;
